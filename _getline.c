@@ -44,6 +44,37 @@ char *_getline()
 	return (buf);
 }
 /**
+ * space - remove the space
+ * @ptr: string to checed/
+ * Return: string
+ */
+char *space(char *ptr)
+{
+	int i, j = 0;
+	char *buff;
+
+	buff = malloc(sizeof(char) * (_strlen(ptr) + 1));
+	if (buff == NULL)
+	{
+		free(buff);
+		return (NULL);
+	}
+	for (i = 0; ptr[i] == ' '; i++)
+		;
+	for (; ptr[i + 1] != '\0'; i++)
+	{
+		buff[j] = ptr[i];
+		j++;
+	}
+	buff[j] = '\0';
+	if (buff[0] == '\0' || buff[0] == '#')
+	{
+		free(buff);
+		return ("\0");
+	}
+	return (buff);
+}
+/**
  * hashtag_handler - handling hte hashtag
  * @buf: char  to chekced
  */
