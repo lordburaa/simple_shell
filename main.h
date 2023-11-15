@@ -99,16 +99,16 @@ int check_cmd(char **cmd, char *in, int i, char **argv);
 void signal_to_handle(int signal);
 
 /** STRING HANDLER 1 **/
- int _putchar (char c);
- void _puts(char *str);
- char *_strncpy(char *dest, char *src, int n);
- int _strlen(char *s);
- int _atoi(char *s);
+int _putchar (char c);
+void _puts(char *str);
+char *_strncpy(char *dest, char *src, int n);
+int _strlen(char *s);
+int _atoi(char *s);
 
 /** STRING HANDLER 2**/
 char *_strcpy(char *dest, char *stc);
 int _strcmp(char *ptr, char *str);
-int _strncmp(const char *pt, const char *str, size_t n );
+int _strncmp(const char *pt, const char *str, size_t n);
 char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
 
@@ -124,7 +124,11 @@ void array_rev(char *arr, int len);
 /** STRING TOKENIZE **/
 unsigned int check_delim(char k, const char *str);
 char *_strtok(char *str, const char *delim);
-
+/**
+ * struct _builtin - struct that contain built-in commands
+ * @command: command
+ * @function:  pointer to custom function
+ */
 typedef struct _builtin
 {
 	char *command;
