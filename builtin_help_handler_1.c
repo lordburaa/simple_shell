@@ -27,7 +27,7 @@ void help_alias(void)
 {
 	char *msg = "alias: alias [NAME[='VALUE'] ...]\n\tHandle aliases.\n";
 
-	write(STODUT_FILENO, msg, _strlen(msg));
+	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "\n\talias: Prints a list of all aiases, one per line, in ";
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "the formant NAME='VALUE'.\n\talias name [ name2 ...]:prints";
@@ -50,7 +50,7 @@ void help_cd(void)
 
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = " process to DIRECOTRY.\n\n\tIf no argument iss given, the ";
-	wrtie(STDOUT_FILENO, msg, _strlen(msg));
+	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "command is interpreted as cd $HOME. If the argument '-' is";
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "given, the command is interpereted as cd $OLDPWD:\n\n";
@@ -69,7 +69,7 @@ void help_exit(void)
 
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "STATUS arguments is the integer used to exit the shell.";
-	write(STDOUT_FILENO, msg, _stlen(msg));
+	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = " If no agument is given, the command is interpeted as ";
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = " exit 0.\n";
@@ -84,8 +84,8 @@ void help_help(void)
 
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "\n   help [BUILTIN name]\n\tSee specific informantion on each ";
-	write(STDOUT_FIELNO, msg, _strlen(msg));
+	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "builtin command.\n";
-	write(STDOUT_FILENO, msg. _strlen(msg));
+	write(STDOUT_FILENO, msg, _strlen(msg));
 }
 

@@ -1,31 +1,33 @@
 #include "main.h"
 /**
- * separator - spearate th command recived form stdin by ; and &
- * @in:  input from the stdin
- * Return: paprsed string to be used as command
+ * separator - separator  commands
+ * @in: inout
+ * Return: separate the commands
  */
 char **separator(char *in)
 {
 	char **commands;
 	char *command;
 	int i;
-	int bufsize = BUFSIZE;
+	int buffsize = BUFSIZE;
 
+	if (in[0] == ' ' && in[_strlen(in)] == ' ')
+		exit(0);
 	if (in == NULL)
 		return (NULL);
-	commands = malloc(sizeof(char *) * bufsize);
+	commands = malloc(sizeof(char *) * buffsize);
 	if (!commands)
 	{
 		free(commands);
-		perror("hsh");
+		perror("hsh ");
 		return (NULL);
 	}
-	command = _strtok(input, ";&");
+	command = _strtok(in, "&;");
 	for (i = 0; command; i++)
 	{
-		cmds[i] = cmd;
-		cmd = _strtok(NULL, ";&");
+		commands[i] = command;
+		command = _strtok(NULL, "&;");
 	}
-	cmds[i] = NULL;
-	return (cmds);
+	commands[i] = NULL;
+	return (commands);
 }

@@ -1,16 +1,38 @@
-#ifndef MANI_SH
+#ifndef MAIN_SH
 #define MAIN_SH
 
+/** MACRO **/
+#define PRINT(c) (write(STDERR_FILENO, c, _strlen(c)))
+#define BUFSIZE  1024
+#define DELIMITER " \t\r\n\a"
 
-
+/** STANDARD LIBTARIES **/
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <linux/limits.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <string.h>
+#include <stddef.h>
 
 /** BUILTIN COMMAND HABDKERS****/
 
 void exit_bul(char **cmd, char *input, char **argv, int x, int stat);
 int check_builtin(char **cmd);
 int handle_bultin(char **cmd, int st);
+extern char **environ;
 
-
+/** BUILTIN HELP HANDLER **/
+void help_all(void);
+void help_alias(void);
+void help_cd(void);
+void help_exit(void);
+void help_help(void);
 
 /** BUILTIN HELP HANDLER ***/
 void help_env(void);
@@ -20,6 +42,9 @@ int display_help(char **cmd, int stat);
 
 /** BUILT COMMAND EXECUTE ***/
 int change_dir(char **cmd, int st);
+int dis_env(char **cmd, int st);
+int echo_bul(char **cmd, int st);
+int history_dis(char **c, int st);
 
 
 
@@ -27,7 +52,7 @@ int change_dir(char **cmd, int st);
 /** GETLINE FUNCTION **/
 
 char *_getline();
-void hastag_handler(char *buf);
+void hashtag_handler(char *buf);
 char *enter(char *str);
 char *space(char *ptr);
 
@@ -37,7 +62,7 @@ void free_env(char **env);
 
 
 /*** HANDLE error **/
-void print_error(char *in, int counter, char *argv);
+void print_error(char *in, int counter, char **argv);
 void _perror(char **argv, int i, char **cmd);
 void error_file(char **argv, int i);
 
@@ -52,8 +77,8 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 char **parse_cmd(char *in);
 
 /** PATH FIND **/
-int path_cmd(char *cmd);
-char *getenv(char *name);
+int path_cmd(char **cmd);
+char *_getenv(char *name);
 char *build(char *token, char *value);
 
 
@@ -64,15 +89,21 @@ int print_echo(char **cmd);
 
 
 /** PROMP **/
-void prompt(void);
+void propt(void);
 
 /** SEPARATOR ***/
-char **separator(int in);
+char **separator(char *in);
 
 /** stdin command executoin **/
 int check_cmd(char **cmd, char *in, int i, char **argv);
 void signal_to_handle(int signal);
 
+/** STRING HANDLER 1 **/
+ int _putchar (char c);
+ void _puts(char *str);
+ char *_strncpy(char *dest, char *src, int n);
+ int _strlen(char *s);
+ int _atoi(char *s);
 
 /** STRING HANDLER 2**/
 char *_strcpy(char *dest, char *stc);
@@ -84,14 +115,19 @@ char *_strcat(char *dest, char *src);
 
 /** STRING HANDLER 3 **/
 int _isalpha(int c);
-char *_itoa(unsigned in n);
+char *_itoa(unsigned int n);
 int intlen(int num);
 void array_rev(char *arr, int len);
 
 
 
 /** STRING TOKENIZE **/
-unsigned int check_delim(char k, char *str);
-char *_strtok(const char *str, const char *delim);
+unsigned int check_delim(char k, const char *str);
+char *_strtok(char *str, const char *delim);
 
+typedef struct _builtin
+{
+	char *command;
+	int (*function)(char **line, int st);
+} builtin;
 #endif

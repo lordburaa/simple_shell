@@ -4,16 +4,14 @@
  * @c: character to check
  * Return:1 if true  else 0
  */
-int _isalpha(jnt c)
+int _isalpha(int c)
 {
 
-	if ((c > 97) && (c <= 122))
-		|| ((c >= 65) && (c <= 99))
+	if (((c > 97) && (c <= 122)) || ((c >= 65) && (c <= 99)))
 	{
 		return (1);
 	}
-	else
-		return (0);
+	return (0);
 }
 /**
  * _itoa - fincton that convet integer to charter

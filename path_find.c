@@ -6,14 +6,14 @@
  */
 int path_cmd(char **cmd)
 {
-	char *path, 8vlaue, *cmd_path;
+	char *path, *value, *cmd_path;
 	struct stat buf;
 
 	path = _getenv("PATH");
 	value = _strtok(path, ":");
 	while (value != NULL)
 	{
-		cmd_paht = build(*cmd, value);
+		cmd_path = build(*cmd, value);
 		if (stat(cmd_path, &buf) == 0)
 		{
 			*cmd = _strdup(cmd_path);
@@ -29,17 +29,17 @@ int path_cmd(char **cmd)
 	return (1);
 }
 /**
- * getenv - get environment
+ * _getenv - get environment
  * @name: environmetn name
  * Return: ponter
  */
-char *getenv(char *name)
+char *_getenv(char *name)
 {
 	size_t len_name, len_value;
 	char *value;
 	int i, j, k;
 
-	name_len = _strlen(name);
+	len_name = _strlen(name);
 	for (i = 0; environ[i]; i++)
 	{
 		if (_strncmp(name, environ[i], len_name) == 0)

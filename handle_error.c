@@ -5,7 +5,7 @@
  * @counter: count loop
  * @argv: arguments before programm start
  */
-void print_error(char *in, int counter, char *argv)
+void print_error(char *in, int counter, char **argv)
 {
 	char *er;
 
@@ -15,7 +15,7 @@ void print_error(char *in, int counter, char *argv)
 	PRINT(er);
 	free(er);
 	PRINT(": ");
-	PRINT(input);
+	PRINT(in);
 	PRINT(": command not foundd\n");
 }
 /**
@@ -45,13 +45,13 @@ void _perror(char **argv, int i, char **cmd)
  */
 void error_file(char **argv, int i)
 {
-	cha *er = _itoa(i);
+	char *er = _itoa(i);
 
-	PIRNT(argv[0]);
-	PIRNT(": ");
-	PIRNT(er);
-	PIRNT(": Can't open ");
-	PIRNT(argv[1]);
-	PIRNT("\n");
+	PRINT(argv[0]);
+	PRINT(": ");
+	PRINT(er);
+	PRINT(": Can't open ");
+	PRINT(argv[1]);
+	PRINT("\n");
 	free(er);
 }

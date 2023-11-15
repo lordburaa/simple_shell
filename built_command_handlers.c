@@ -21,7 +21,7 @@ int check_builtin(char **cmd)
 	}
 	while ((fun + i)->command)
 	{
-		if (_sttrcmp(cmd[0], (fun + i)->command) == 0)
+		if (_strcmp(cmd[0], (fun + i)->command) == 0)
 			return (0);
 		i++;
 	}
@@ -56,14 +56,14 @@ void exit_bul(char **cmd, char *input, char **argv, int c, int stat)
 		}
 		else
 		{
-			status = _atoi(cmd[1])
-				if (status == 2)
-				{
-					_perror(arv, c, cmd);
-					free(input);
-					free(cmd);
-					xit(status);
-				}
+			status = _atoi(cmd[1]);
+			if (status == 2)
+			{
+				_perror(argv, c, cmd);
+				free(input);
+				free(cmd);
+				exit(status);
+			}
 			free(input);
 			free(cmd);
 			exit(status);
@@ -78,7 +78,7 @@ void exit_bul(char **cmd, char *input, char **argv, int c, int stat)
  */
 int handle_bultin(char **cmd, int st)
 {
-	buitin built_in[] = {
+	builtin built_in[] = {
 		{"cd", change_dir},
 		{"env", dis_env},
 		{"echo", echo_bul},
@@ -90,9 +90,9 @@ int handle_bultin(char **cmd, int st)
 
 	while ((built_in + i)->command)
 	{
-		if (_strcmp(cmmd[0], (built_in + i)->command) == 0)
+		if (_strcmp(cmd[0], (built_in + i)->command) == 0)
 		{
-			return ((buit_in + i)->function(cmd, st));
+			return ((built_in + i)->function(cmd, st));
 		}
 		i++;
 	}

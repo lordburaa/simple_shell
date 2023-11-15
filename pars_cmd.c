@@ -14,7 +14,7 @@ char **parse_cmd(char *in)
 
 	if (in == NULL)
 		return (NULL);
-	args = malloc(sizeof(char *) * bufsize);
+	args = malloc(sizeof(char *) * buffsize);
 	if (!args)
 	{
 		free(args);
@@ -24,7 +24,7 @@ char **parse_cmd(char *in)
 	arg = _strtok(in, "\n\t\r\a ");
 	for (i = 0; arg; i++)
 	{
-		args[i] = argument;
+		args[i] = arg;
 		arg = _strtok(NULL, "\n\t\r\a ");
 	}
 	args[i] = NULL;

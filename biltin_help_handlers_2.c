@@ -13,7 +13,8 @@ void help_env(void)
  */
 void help_setenv(void)
 {
-	char *msg = "setenv: setenv [VARIABLE] [VALUE]\nIntializes a new:;
+	char *msg = "setenv: setenv [VARIABLE] [VALUE]\nIntializes a new";
+
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "environemr variable, or modifies an existing one \n\n";
 	write(STDOUT_FILENO, msg, _strlen(msg));
@@ -27,19 +28,20 @@ void help_setenv(void)
 void help_unsetenv(void)
 {
 	char *msg = "nsetenv: unsetenv [VARIABLE]\n\tRemoves an ";
+
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "environmental variabel.\n\n\tUpon failure, pirnts a";
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "meassage to stderr.\n";
-	write(STODUT_FILENO, msg, _strlen(msg));
+	write(STDOUT_FILENO, msg, _strlen(msg));
 }
 /**
- * dispaly_help - dispay ehlp for bultin commands
+ * display_help - dispay ehlp for bultin commands
  * @cmd: parsed command
  * @stat: status  of last commnd executed
  * Return: 0 success
  */
-int display_help(char **cmd, __attricue__((unused))int stat)
+int display_help(char **cmd, __attribute__((unused))int stat)
 {
 	if (!cmd[1])
 		help_all();
@@ -53,5 +55,5 @@ int display_help(char **cmd, __attricue__((unused))int stat)
 		help_env();
 	else if (_strcmp(cmd[1], "setenv") == 0)
 		help_help();
-	return 0;
+	return (0);
 }

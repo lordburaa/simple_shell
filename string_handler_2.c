@@ -25,12 +25,12 @@ char *_strcpy(char *dest, char *stc)
  */
 int _strcmp(char *ptr, char *str)
 {
-	int cmp = 0, i, len2, len2;
+	int cmp = 0, i, len1, len2;
 
 	len1 = _strlen(ptr);
 	len2 = _strlen(str);
 
-	if (ptr == NULl || str == NULL)
+	if (ptr == NULL || str == NULL)
 		return (1);
 
 	if (len1 != len2)
@@ -40,11 +40,11 @@ int _strcmp(char *ptr, char *str)
 	{
 		if (ptr[i] != str[i])
 		{
-			cmp = ptr1[i] - str[i];
+			cmp = ptr[i] - str[i];
 			break;
 		}
 		else
-			continue
+			continue;
 	}
 	return (cmp);
 }
@@ -80,7 +80,7 @@ char *_strdup(char *str)
 	size_t len, i;
 	char *str2;
 
-	len = _strlne(str);
+	len = _strlen(str);
 	str2 = malloc(sizeof(char) * (len + 1));
 	if (!str2)
 	{

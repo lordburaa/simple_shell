@@ -9,7 +9,7 @@ void create_envi(char **envi)
 
 	for (k = 0; environ[k]; k++)
 		envi[k] = _strdup(environ[k]);
-	env[k] = NULL;
+	envi[k] = NULL;
 }
 /**
  * free_env - frees the memory of the created environment varibales aray
@@ -19,8 +19,8 @@ void free_env(char **envi)
 {
 	int k;
 
-	for (k = 0; env[k]; k++)
+	for (k = 0; envi[k]; k++)
 	{
-		free(env[k]);
+		free(envi[k]);
 	}
 }

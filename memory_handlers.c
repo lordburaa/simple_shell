@@ -10,14 +10,14 @@ void *_realloc(void *ptr, unsigned int o_size, unsigned int n_size)
 {
 	void *result;
 
-	if (n_size == old_size)
+	if (n_size == o_size)
 		return (ptr);
 	if (n_size == 0 && ptr)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	result = mallo(n_size);
+	result = malloc(n_size);
 
 	if (result == NULL)
 	{

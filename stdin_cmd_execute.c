@@ -27,7 +27,7 @@ int check_cmd(char **cmd, char *in, int i, char **argv)
 		if (access(cmd[0], R_OK) != 0)
 		{
 			print_error(cmd[0], i, argv);
-			free_all(cmd, i);
+			free_all(cmd, in);
 			exit(127);
 		}
 		if (execve(*cmd, cmd, environ) == -1)
@@ -35,12 +35,12 @@ int check_cmd(char **cmd, char *in, int i, char **argv)
 		else
 			return (0);
 	}
-	wait(&wstatus);
+	wait(&status);
 	if (WIFEXITED(status))
 	{
 		if (WEXITSTATUS(status) == 0)
 			return (0);
-		else if (WEXITSTAUS(status) == 2)
+		else if (WEXITSTATUS(status) == 2)
 			return (2);
 		else if (WEXITSTATUS(status) == 127)
 			return (127);
@@ -53,8 +53,8 @@ int check_cmd(char **cmd, char *in, int i, char **argv)
  */
 void signal_to_handle(int signal)
 {
-	if (sig == SIGINT)
+	if (signal == SIGINT)
 	{
-		PRINT("\N$ ");
+		PRINT("\n$ ");
 	}
 }

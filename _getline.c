@@ -8,11 +8,11 @@ char *_getline()
 	int i, rd, bufsize;
 	char d = 0, *buf, *bufer;
 
-	bufsize = BUFFSIZE;
+	bufsize = BUFSIZE;
 	bufer = malloc(bufsize);
-	if (buffer == NULL)
+	if (bufer == NULL)
 	{
-		free(buffer);
+		free(bufer);
 		return (NULL);
 	}
 	for (i = 0; d != EOF && d != '\n'; i++)
@@ -21,11 +21,11 @@ char *_getline()
 		rd = read(STDIN_FILENO, &d, 1);
 		if (rd == 0)
 		{
-			free(buf);
+			free(bufer);
 			exit(EXIT_SUCCESS);
 		}
-		buffer[i] = d;
-		if (buffer[0] == '\n')
+		bufer[i] = d;
+		if (bufer[0] == '\n')
 			return (enter(bufer));
 		if (i >= bufsize)
 		{
@@ -40,7 +40,7 @@ char *_getline()
 	bufer[i] = '\0';
 	buf = space(bufer);
 	free(bufer);
-	hastag_handler(buf);
+	hashtag_handler(buf);
 	return (buf);
 }
 /**

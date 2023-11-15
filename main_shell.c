@@ -6,40 +6,42 @@
  * * Return: 0 sucess
  */
 
-int main(int argc, char **argv)
+int main(__attribute__((unused))int argc, char **argv)
 {
-	char *input;
+	char *input, **cmd, **commands;
 	int cond = 1;
+	int count = 0;
+	int status, i;
 
 	while (cond)
 	{
 		if (isatty(STDIN_FILENO))
-			prompt();
-		intput = _getline();
+			propt();
+		input = _getline();
 		if (input[0] == '\0')
 			continue;
 		commands = separator(input);
-		for (i = 0; command[i] != NULL; i++)
+		for (i = 0; commands[i] != NULL; i++)
 		{
-			cmd = parse_cmd(commnads[i]);
+			cmd = parse_cmd(commands[i]);
 			if (_strcmp(cmd[0], "exit") == 0)
 			{
 				free(commands);
-				exit_bul(cmd, input, argv, count, stat);
+				exit_bul(cmd, input, argv, count, status);
 			}
 			else if (check_builtin(cmd) == 0)
 			{
-				stat = handle_bultin(cmd, stat);
+				status = handle_bultin(cmd, status);
 				free(cmd);
 				continue;
 			}
 			else
-				stat = check_cmd(cmd, input, count, argv);
+				status = check_cmd(cmd, input, count, argv);
 			free(cmd);
 		}
 		free(input);
 		free(commands);
-		wait(&stat);
+		wait(&status);
 	}
-	return (stat);
+	return (status);
 }

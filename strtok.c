@@ -5,7 +5,7 @@
  * @str: string
  * Return: 1 if succes else 0
  */
-unsigned int check_delim(char k, char *str)
+unsigned int check_delim(char k, const char *str)
 {
 	unsigned int i;
 
@@ -22,7 +22,7 @@ unsigned int check_delim(char k, char *str)
  * @delim: deliminator
  * Return: tokenize string
  */
-char *_strtok(const char *str, const char *delim)
+char *_strtok(char *str, const char *delim)
 {
 	static char *tokens;
 	static char *Ntoken;
@@ -33,7 +33,7 @@ char *_strtok(const char *str, const char *delim)
 	tokens = Ntoken;
 	if (tokens == NULL)
 		return (NULL);
-	for (i = 0; toekns[i] != '\0'; i++)
+	for (i = 0; tokens[i] != '\0'; i++)
 	{
 		if (check_delim(tokens[i], delim) == 0)
 			break;
@@ -44,7 +44,7 @@ char *_strtok(const char *str, const char *delim)
 		return (NULL);
 	}
 	tokens = Ntoken + i;
-	Ntoken - tokens;
+	Ntoken = tokens;
 	for (i = 0; Ntoken[i] != '\0'; i++)
 	{
 		if (check_delim(Ntoken[i], delim) == 1)
@@ -57,7 +57,7 @@ char *_strtok(const char *str, const char *delim)
 		Ntoken[i] = '\0';
 		Ntoken = Ntoken + i + 1;
 		if (*Ntoken == '\0')
-			Ntoken == NULL;
+			Ntoken = NULL;
 	}
 	return (tokens);
 }
