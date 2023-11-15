@@ -84,7 +84,7 @@ char *build(char *token, char *value)
 	memset(cmd, 0, len);
 
 	cmd = _strcat(cmd, value);
-	cmd = _strcat(cmd, " ");
+	cmd = _strcat(cmd, "/");
 	cmd = _strcat(cmd, token);
 
 	return (cmd);
