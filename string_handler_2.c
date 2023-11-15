@@ -1,5 +1,10 @@
 #include "main.h"
-
+/**
+ * _strcpy - string copy
+ * @dest: destination
+ * @stc:  string to be checked
+ * Return: pointer to the destinatoin
+ */
 char *_strcpy(char *dest, char *stc)
 {
 	int i = 0;
@@ -13,19 +18,19 @@ char *_strcpy(char *dest, char *stc)
 	return (dest);
 }
 /**
- * stecmp - string compared
+ * _strcmp - string compared
  * @ptr: string to chekc
  * @str: string ot check
  * Return: 1  not success else  0
  */
 int _strcmp(char *ptr, char *str)
 {
-	int cmp = 0; i, len2, len2;
-	
+	int cmp = 0, i, len2, len2;
+
 	len1 = _strlen(ptr);
 	len2 = _strlen(str);
 
-	if (ptr == NULl || str = NULL)
+	if (ptr == NULl || str == NULL)
 		return (1);
 
 	if (len1 != len2)
@@ -53,10 +58,10 @@ int _strcmp(char *ptr, char *str)
 int _strncmp(const char *ptr, const char *str, size_t n)
 {
 	size_t i;
-	
+
 	if (ptr == NULL)
 		return (-1);
-	for ( i = 0; i < n && str[i]; i++)
+	for (i = 0; i < n && str[i]; i++)
 	{
 		if (ptr[i] != str[i])
 		{
@@ -65,14 +70,18 @@ int _strncmp(const char *ptr, const char *str, size_t n)
 	}
 	return (0);
 }
-
+/**
+ * _strdup - string copy to new memory
+ * @str: string to be checed
+ * Return: pointer
+ */
 char *_strdup(char *str)
 {
 	size_t len, i;
 	char *str2;
 
 	len = _strlne(str);
-	str2 = malloc(sizeof(char ) * (len + 1));
+	str2 = malloc(sizeof(char) * (len + 1));
 	if (!str2)
 	{
 		return (NULL);
@@ -82,4 +91,25 @@ char *_strdup(char *str)
 		str2[i] = str[i];
 	}
 	return (str2);
+}
+/**
+ * _strcat - function that concatinates two string
+ * @dest: first string
+ * @src: second string
+ * Return: first string + second string
+ */
+char *_strcat(char *dest, char *src)
+{
+	char *s = dest;
+
+	while (*dest != '\0')
+		dest++;
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (s);
 }

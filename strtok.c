@@ -1,21 +1,28 @@
 #include "main.h"
 /**
- * check_delim - functin that cheks tha if the characte match any charater 
- * @c: characterto chekc
+ * check_delim - functin that cheks tha if the characte match any charater
+ * @k: characterto chekc
+ * @str: string
+ * Return: 1 if succes else 0
  */
-unsigned int check_delim(char c, cpmst char *str)
+unsigned int check_delim(char k, char *str)
 {
-	unsinged int i;
+	unsigned int i;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (c = str[i])
+		if (k == str[i])
 			return (1);
 	}
 	return (0);
 }
-
-char *_strtok(const char *str, const char *elim)
+/**
+ * _strtok - string tokenize
+ * @str: string to be checked
+ * @delim: deliminator
+ * Return: tokenize string
+ */
+char *_strtok(const char *str, const char *delim)
 {
 	static char *tokens;
 	static char *Ntoken;
@@ -24,7 +31,7 @@ char *_strtok(const char *str, const char *elim)
 	if (str != NULL)
 		Ntoken = str;
 	tokens = Ntoken;
-	if (tokens = NULL)
+	if (tokens == NULL)
 		return (NULL);
 	for (i = 0; toekns[i] != '\0'; i++)
 	{
@@ -38,7 +45,7 @@ char *_strtok(const char *str, const char *elim)
 	}
 	tokens = Ntoken + i;
 	Ntoken - tokens;
-	if (i = 0; Ntoken[i] != '\0'; i+++)
+	for (i = 0; Ntoken[i] != '\0'; i++)
 	{
 		if (check_delim(Ntoken[i], delim) == 1)
 			break;

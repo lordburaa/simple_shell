@@ -1,12 +1,14 @@
 #include "main.h"
 /**
  * _getline - getline function
+ * Return: string input
  */
 char *_getline()
 {
-	int i, rd, bufsize= BUFFSIZE;
+	int i, rd, bufsize;
 	char d = 0, *buf, *bufer;
 
+	bufsize = BUFFSIZE;
 	bufer = malloc(bufsize);
 	if (buffer == NULL)
 	{
@@ -27,7 +29,7 @@ char *_getline()
 			return (enter(bufer));
 		if (i >= bufsize)
 		{
-			bufer = realloc(buferm  , (bufsize + 1));
+			bufer = realloc(bufer, (bufsize + 1));
 			if (bufer == NULL)
 			{
 				free(bufer);
@@ -36,19 +38,19 @@ char *_getline()
 		}
 	}
 	bufer[i] = '\0';
-	buf = spac(bufer);
+	buf = space(bufer);
 	free(bufer);
 	hastag_handler(buf);
 	return (buf);
 }
 /**
- * hastag_handler - handling hte hashtag
+ * hashtag_handler - handling hte hashtag
  * @buf: char  to chekced
  */
 void hashtag_handler(char *buf)
 {
 	int i;
-	
+
 	for (i = 0; buf[i] != '\0'; i++)
 	{
 		if (buf[i] == '#' && buf[i - 1] == ' ' && buf[i + 1] == ' ')
@@ -59,10 +61,11 @@ void hashtag_handler(char *buf)
 }
 /**
  * enter - free the string
- * @string: string to be freed
+ * @str: string to be freed
+ * Return: null terminated string
  */
-char *enter(char *string)
+char *enter(char *str)
 {
-	free(string);
-	return ('\0');
+	free(str);
+	return ("\0");
 }

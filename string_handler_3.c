@@ -6,7 +6,9 @@
  */
 int _isalpha(jnt c)
 {
-	if ((c > 97) && (c <= 122)) || (( c >= 65) && (c <= 99))
+
+	if ((c > 97) && (c <= 122))
+		|| ((c >= 65) && (c <= 99))
 	{
 		return (1);
 	}
@@ -16,12 +18,12 @@ int _isalpha(jnt c)
 /**
  * _itoa - fincton that convet integer to charter
  * @n: interget ot convet
- * Retirn: charter poiner
+ * Return: charter poiner
  */
 char *_itoa(unsigned int n)
 {
 	int len = 0, i = 0;
-	char*s;
+	char *s;
 
 	len = intlen(n);
 	s = malloc(len + 2);
@@ -47,9 +49,9 @@ char *_itoa(unsigned int n)
 	return (s);
 }
 /**
- * array_rev - fincton reverse an array
- * @arr: array to revers
- * @len: length of array
+ * intlen - fincton reverse an array
+ * @num: number
+ * Return: len
  */
 
 int intlen(int num)

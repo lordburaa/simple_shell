@@ -1,6 +1,13 @@
 #include "main.h"
-
-int check_cmd(char **cmd, char *input , int c, char **argv)
+/**
+ * check_cmd - check cmd
+ * @cmd: command
+ * @in: input
+ * @i: int
+ * @argv: argument
+ * Return: number
+ */
+int check_cmd(char **cmd, char *in, int i, char **argv)
 {
 	int status;
 	pid_t pid;
@@ -19,8 +26,8 @@ int check_cmd(char **cmd, char *input , int c, char **argv)
 			path_cmd(cmd);
 		if (access(cmd[0], R_OK) != 0)
 		{
-			print_error(cmd[0], c, argv);
-			free_all(cmd, input);
+			print_error(cmd[0], i, argv);
+			free_all(cmd, i);
 			exit(127);
 		}
 		if (execve(*cmd, cmd, environ) == -1)
@@ -39,4 +46,15 @@ int check_cmd(char **cmd, char *input , int c, char **argv)
 			return (127);
 	}
 	return (127);
-
+}
+/**
+ * signal_to_handle - configure c not to terminate our shell
+ * @signal:  incoming signal
+ */
+void signal_to_handle(int signal)
+{
+	if (sig == SIGINT)
+	{
+		PRINT("\N$ ");
+	}
+}

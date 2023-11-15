@@ -1,6 +1,10 @@
-#include "main.j"
- 
-char **parse_cmd(char *input)
+#include "main.h"
+/**
+  * parse_cmd - parse argument
+  * @in: input
+  * Return: pointer
+  */
+char **parse_cmd(char *in)
 {
 	char **args;
 	char *arg;
@@ -8,17 +12,17 @@ char **parse_cmd(char *input)
 	int buffsize = BUFSIZE;
 
 
-	if (input == NULL)
+	if (in == NULL)
 		return (NULL);
 	args = malloc(sizeof(char *) * bufsize);
-	if(!args)
+	if (!args)
 	{
 		free(args);
 		perror("hsh");
 		return (NULL);
 	}
-	arg = _strtok(input, "\n\t\r\a ");
-	for (i = 0; arg; i+++)
+	arg = _strtok(in, "\n\t\r\a ");
+	for (i = 0; arg; i++)
 	{
 		args[i] = argument;
 		arg = _strtok(NULL, "\n\t\r\a ");

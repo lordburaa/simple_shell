@@ -1,13 +1,17 @@
 #include "main.h"
-
-char **separator(char *input)
+/**
+ * separator - spearate th command recived form stdin by ; and &
+ * @in:  input from the stdin
+ * Return: paprsed string to be used as command
+ */
+char **separator(char *in)
 {
 	char **commands;
 	char *command;
 	int i;
 	int bufsize = BUFSIZE;
 
-	if (input == NULL)
+	if (in == NULL)
 		return (NULL);
 	commands = malloc(sizeof(char *) * bufsize);
 	if (!commands)
