@@ -46,6 +46,10 @@ int dis_env(char **cmd, int st);
 int echo_bul(char **cmd, int st);
 int history_dis(char **c, int st);
 
+/** FILE ARGUMET **/
+void read_file(char *file, char **argv);
+void treat_file(char *line, int count, FILE *fp, char **argv);
+void exit_bul_for_file(char **cmd, char *line, FILE *fd);
 
 
 
