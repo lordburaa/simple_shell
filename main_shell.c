@@ -5,7 +5,6 @@
  * @argv: vecotr
  * * Return: 0 sucess
  */
-
 int main(__attribute__((unused))int argc, char **argv)
 {
 	char *input, **cmd, **commands;
@@ -13,6 +12,9 @@ int main(__attribute__((unused))int argc, char **argv)
 	int count = 0;
 	int status, i;
 
+	if (argv[1] != NULL)
+		read_file(argv[1], argv);
+	signal(SIGINT, signal_to_handle);
 	while (cond)
 	{
 		if (isatty(STDIN_FILENO))
