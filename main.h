@@ -20,6 +20,9 @@
 #include <string.h>
 #include <stddef.h>
 
+/** HISOTRY **/
+int history(char *in);
+
 /** BUILTIN COMMAND HABDKERS****/
 
 void exit_bul(char **cmd, char *input, char **argv, int x, int stat);
