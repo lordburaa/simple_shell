@@ -11,7 +11,7 @@ void print_number_int(int num)
 	if (num < 0)
 	{
 		_putchar('-');
-		x -= x;
+		x = -x;
 	}
 	if ((x / 10) > 0)
 		print_number(x / 10);
@@ -42,7 +42,7 @@ int print_echo(char **cmd)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execve("/bin/cho", cmd, environ) == -1)
+		if (execve("/bin/echo", cmd, environ) == -1)
 		{
 			return (-1);
 		}
