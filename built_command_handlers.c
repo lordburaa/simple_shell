@@ -11,6 +11,7 @@ int check_builtin(char **cmd)
 		{"cd", NULL},
 		{"help", NULL},
 		{"echo", NULL},
+		{"history", NULL},
 		{"env", NULL},
 		{NULL, NULL}
 	};
