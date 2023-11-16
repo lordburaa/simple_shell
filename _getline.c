@@ -29,7 +29,7 @@ char *_getline()
 			return (enter(bufer));
 		if (i >= bufsize)
 		{
-			bufer = realloc(bufer, (bufsize + 1));
+			bufer = realloc(bufer, (bufsize + 2));
 			if (bufer == NULL)
 			{
 				free(bufer);
