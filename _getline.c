@@ -5,7 +5,8 @@
  */
 char *_getline()
 {
-	int i, rd, bufsize;
+	static int i;
+	int rd, bufsize;
 	char d = 0;
 	static char *buf, *bufer;
 
