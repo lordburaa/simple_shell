@@ -8,7 +8,8 @@ char *_getline()
 	int i;
 	int rd, bufsize;
 	char d = 0;
-	char *buf, *bufer;
+	static char *buf;
+     	char *bufer;
 
 	bufsize = BUFSIZE;
 	bufer = malloc(bufsize);
