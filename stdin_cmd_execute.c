@@ -32,7 +32,7 @@ int check_cmd(char **cmd, char *in, int i, char **argv)
 		}
 		if (execve(*cmd, cmd, environ) == -1)
 		{
-			exit(EXIT_FILURE);
+			exit(EXIT_FAILURE);
 		}
 		else
 			return (0);
