@@ -6,12 +6,11 @@
 char *_getline()
 {
 	int i;
-	int rd, bufsize;
+	int rd;
+	static char bufsize = BUSIZE;
 	char d = 0;
-	static char *buf;
-     	char *bufer;
+	char *buf, *bufer;
 
-	bufsize = BUFSIZE;
 	bufer = malloc(bufsize);
 	if (bufer == NULL)
 	{
