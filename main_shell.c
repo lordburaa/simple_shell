@@ -17,6 +17,7 @@ int main(__attribute__((unused))int argc, char **argv)
 	signal(SIGINT, signal_to_handle);
 	while (cond)
 	{
+		count++;
 		if (isatty(STDIN_FILENO))
 			propt();
 		input = _getline();
