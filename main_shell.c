@@ -12,7 +12,6 @@ int main(__attribute__((unused))int argc, char **argv)
 	int count = 0;
 	int status, i;
 
-	status = 0;
 	if (argv[1] != NULL)
 		read_file(argv[1], argv);
 	signal(SIGINT, signal_to_handle);

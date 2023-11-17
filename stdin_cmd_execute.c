@@ -31,7 +31,9 @@ int check_cmd(char **cmd, char *in, int i, char **argv)
 			exit(127);
 		}
 		if (execve(*cmd, cmd, environ) == -1)
-			return (2);
+		{
+			exit(EXIT_FILURE);
+		}
 		else
 			return (0);
 	}

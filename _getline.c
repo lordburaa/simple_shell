@@ -5,8 +5,8 @@
  */
 char *_getline()
 {
-	static int i, rd, bufsize;
-	char d = 0, *buf, *bufer;
+	int i, rd, bufsize;
+	static char d = 0, *buf, *bufer;
 
 	bufsize = BUFSIZE;
 	bufer = malloc(bufsize);

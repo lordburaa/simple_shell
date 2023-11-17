@@ -16,7 +16,7 @@ void print_error(char *in, int counter, char **argv)
 	free(er);
 	PRINT(": ");
 	PRINT(in);
-	PRINT(": command not foundd\n");
+	PRINT(": command not found\n");
 }
 /**
  * _perror - prints custom error
