@@ -7,7 +7,7 @@ char *_getline()
 {
 	int i, rd, bufsize;
 	char d = 0;
-	static *buf, *bufer;
+	static char *buf, *bufer;
 
 	bufsize = BUFSIZE;
 	bufer = malloc(bufsize);
